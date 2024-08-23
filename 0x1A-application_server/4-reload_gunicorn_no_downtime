@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# Gracefully reloads Gunicorn.
-# Get the PID of the Gunicorn process
-PID=$(pgrep gunicorn)
+# Sends a HUP signal to the master process to reload the workers.
 
-# Reload Gunicorn gracefully
+PID=$(pgrep gunicorn)
 kill -s HUP $PID
